@@ -3,7 +3,8 @@ import random
 
 class Card:
 
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.barrels = [i for i in range(1, 91)]
         self.cals = [i for i in range(9)]
         self.barrels_in_row = 5
@@ -26,7 +27,9 @@ class Card:
         return card
 
     def print_card(self):
-        print('-' * 26)
+        pos = int((26 - len(self.name)) / 2)
+        line = '-' * pos + self.name + '-' * (pos + 1 if pos % 2 == 0 else pos)
+        print(line)
         for row in self.card:
             for cell in row:
                 if cell == 0:
