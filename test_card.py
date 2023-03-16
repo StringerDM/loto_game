@@ -44,3 +44,23 @@ class TestCard(unittest.TestCase):
         self.assertTrue(card.try_number(63))
         self.assertTrue(card.try_number(28))
         self.assertTrue(card.try_number(89))
+
+    def test_str(self):
+        card = Card('Карта игрока')
+        self.assertEqual(card.name, str(card))
+
+    def test_eq(self):
+        card = Card('Карта игрока')
+        card1 = Card('Карта игрока')
+        card2 = Card('Карта игрока1')
+        self.assertTrue(card == card1)
+        self.assertFalse(card == card2)
+
+    def test_in(self):
+        card = Card('Карта игрока')
+        card.card = [[0, 63, 0, 7, 4, 18, 21, 0, 0], [0, 0, 0, 28, 15, 0, 44, 65, 51],
+                     [0, 69, 0, 67, 89, 0, 81, 27, 0]]
+        self.assertTrue(63 in card)
+        self.assertTrue(28 in card)
+        self.assertTrue(89 in card)
+

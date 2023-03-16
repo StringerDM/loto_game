@@ -50,3 +50,13 @@ class Card:
                 line[index] = -1
                 return True
         return False
+
+    def __str__(self):
+        return self.name
+
+    def __eq__(self, other):
+        if isinstance(other, Card):
+            return self.name == other.name
+
+    def __contains__(self, item):
+        return self.try_number(item)

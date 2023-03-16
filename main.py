@@ -17,7 +17,7 @@ while True:
     player_card.print_card()
     comp_card.print_card()
     player_answer = input('Зачеркнуть цифру? (y/n): ')
-    is_answer_correct = player_card.try_number(number)
+    is_answer_correct = number in player_card
     if player_answer == 'y':
         if not is_answer_correct:
             print('Такого числа нет на вашей карточке, вы проиграли!')
@@ -28,7 +28,7 @@ while True:
         if is_answer_correct:
             print('Такое число есть на вашей карточке, вы проиграли!')
             break
-    if comp_card.try_number(number):
+    if number in comp_card:
         comp_count += 1
 
     if player_count == 15:
